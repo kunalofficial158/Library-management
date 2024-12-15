@@ -14,9 +14,14 @@ public class BookController {
     @Autowired
     private BookService bookService;
 
+    // Search books by title, author, and genre
     @GetMapping
-    public List<Book> getAllBooks() {
-        return bookService.getAllBooks();
+    public List<Book> getAllBooks(
+            @RequestParam(required = false) String title,
+            @RequestParam(required = false) String author,
+            @RequestParam(required = false) String genre
+    ) {
+        return bookService.getAllBooks(title, author, genre);
     }
 
     @GetMapping("/{id}")

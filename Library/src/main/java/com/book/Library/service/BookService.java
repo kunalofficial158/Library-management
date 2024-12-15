@@ -14,8 +14,10 @@ public class BookService {
     @Autowired
     private BookRepository bookRepository;
 
-    public List<Book> getAllBooks() {
-        return bookRepository.findAll();
+    // Retrieve all books or filter them based on title, author, and genre
+    public List<Book> getAllBooks(String title, String author, String genre) {
+        // Use the repository to find books based on the provided filters
+        return bookRepository.findBooksByFilters(title, author, genre);
     }
 
     public Optional<Book> getBookById(Long id) {

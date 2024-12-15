@@ -23,7 +23,7 @@ public class AdminService {
 
     // Book management
     public List<Book> getAllBooks() {
-        return bookService.getAllBooks();
+        return bookService.getAllBooks(null,null,null);
     }
 
     public Optional<Book> getBookById(Long id) {
